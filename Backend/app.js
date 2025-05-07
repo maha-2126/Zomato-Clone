@@ -4,7 +4,14 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const { dbAfter, dbBefore } = require("./Routes/debugger");
-const app = express();
+const app = express(
+    app.use(cors(
+        {
+            origin: ["https://zomato-frontend-jet.vercel.app/"],
+            methods: ["POST", "GET"],
+            credentials: true
+        }
+);
 const PORT = 5003;
 // const MONGODB_URI = 'mongodb://localhost:27017/BackEnd';
 const MONGODB_URI = 'mongodb+srv://Maha:Maha2126@cluster0.gqpus.mongodb.net/BackEnd';
